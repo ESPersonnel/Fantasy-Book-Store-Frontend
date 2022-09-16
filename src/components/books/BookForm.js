@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 //         genre,
 //         publicationDate
 //         }
-//         fetch("http://book-review-app-espersonnel.herokuapp.com/books", {
+//         fetch("https://book-review-app-espersonnel.herokuapp.com/books", {
 //         method: "POST",
 //         headers: {
 //             "Content-Type": "application/json"
@@ -66,7 +66,7 @@ function BookForm({ onAddBook }) {
     function handleBookFormSubmit(e) {
         e.preventDefault();
 
-        fetch("http://book-review-app-espersonnel.herokuapp.com/books", {
+        fetch("https://book-review-app-espersonnel.herokuapp.com/books", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

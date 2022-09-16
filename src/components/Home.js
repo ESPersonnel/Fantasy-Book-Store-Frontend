@@ -20,26 +20,26 @@ function Home() {
 
     // Fetch data from Ruby backend
     const fetchBooks = () => {
-        fetch("http://book-review-app-espersonnel.herokuapp.com/books")
+        fetch("https://book-review-app-espersonnel.herokuapp.com/books")
         .then(resp => resp.json())
         .then(data => setBooks(data))
     }
 
     const fetchAuthors = () => {
-        fetch("http://book-review-app-espersonnel.herokuapp.com/authors")
+        fetch("https://book-review-app-espersonnel.herokuapp.com/authors")
         .then(resp => resp.json())
         .then(data => setAuthors(data))
     }
 
     const fetchReviews = () => {
-        fetch("http://book-review-app-espersonnel.herokuapp.com/reviews")
+        fetch("https://book-review-app-espersonnel.herokuapp.com/reviews")
         .then(resp => resp.json())
         .then(data => setReviews(data))
     }
 
     // Delete book
     const deleteBook = (id) => {
-        fetch(`http://book-review-app-espersonnel.herokuapp.com/books/${id}`, {
+        fetch(`https://book-review-app-espersonnel.herokuapp.com/books/${id}`, {
             method: "DELETE"
         })
         .then(resp => resp.json())
@@ -51,7 +51,7 @@ function Home() {
 
     // Delete author
     const deleteAuthor = (id) => {
-        fetch(`http://book-review-app-espersonnel.herokuapp.com/authors/${id}`, {
+        fetch(`https://book-review-app-espersonnel.herokuapp.com/authors/${id}`, {
             method: "DELETE"
         })
         .then(resp => resp.json())
@@ -63,7 +63,7 @@ function Home() {
 
     // Delete review
     const deleteReview = (id) => {
-        fetch(`http://book-review-app-espersonnel.herokuapp.com/reviews/${id}`, {
+        fetch(`https://book-review-app-espersonnel.herokuapp.com/reviews/${id}`, {
             method: "DELETE"
         })
         .then(resp => resp.json())
@@ -75,7 +75,7 @@ function Home() {
 
     // Add book
     const addBook = (book) => {
-        fetch("http://book-review-app-espersonnel.herokuapp.com/books", {
+        fetch("https://book-review-app-espersonnel.herokuapp.com/books", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -93,7 +93,7 @@ function Home() {
     
     // Add author
     const addAuthor = (author) => {
-        fetch("http://book-review-app-espersonnel.herokuapp.com/authors", {
+        fetch("https://book-review-app-espersonnel.herokuapp.com/authors", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -111,7 +111,7 @@ function Home() {
 
     // Add review
     const addReview = (review) => {
-        fetch("http://book-review-app-espersonnel.herokuapp.com/reviews", {
+        fetch("https://book-review-app-espersonnel.herokuapp.com/reviews", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -129,7 +129,7 @@ function Home() {
 
     // Update book
     const updateBook = (book) => {
-        fetch(`http://book-review-app-espersonnel.herokuapp.com/books/${book.id}`, {
+        fetch(`https://book-review-app-espersonnel.herokuapp.com/books/${book.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -147,7 +147,7 @@ function Home() {
 
     // Update author
     const updateAuthor = (author) => {
-        fetch(`http://book-review-app-espersonnel.herokuapp.com/authors/${author.id}`, {
+        fetch(`https://book-review-app-espersonnel.herokuapp.com/authors/${author.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -165,7 +165,7 @@ function Home() {
 
     // Update review
     const updateReview = (review) => {
-        fetch(`http://book-review-app-espersonnel.herokuapp.com/reviews/${review.id}`, {
+        fetch(`https://book-review-app-espersonnel.herokuapp.com/reviews/${review.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
