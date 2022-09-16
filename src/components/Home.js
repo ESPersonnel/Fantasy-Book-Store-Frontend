@@ -20,26 +20,26 @@ function Home() {
 
     // Fetch data from Ruby backend
     const fetchBooks = () => {
-        fetch("http://localhost:9292/books")
+        fetch("http://book-review-app-espersonnel.herokuapp.com/books")
         .then(resp => resp.json())
         .then(data => setBooks(data))
     }
 
     const fetchAuthors = () => {
-        fetch("http://localhost:9292/authors")
+        fetch("http://book-review-app-espersonnel.herokuapp.com/authors")
         .then(resp => resp.json())
         .then(data => setAuthors(data))
     }
 
     const fetchReviews = () => {
-        fetch("http://localhost:9292/reviews")
+        fetch("http://book-review-app-espersonnel.herokuapp.com/reviews")
         .then(resp => resp.json())
         .then(data => setReviews(data))
     }
 
     // Delete book
     const deleteBook = (id) => {
-        fetch(`http://localhost:9292/books/${id}`, {
+        fetch(`http://book-review-app-espersonnel.herokuapp.com/books/${id}`, {
             method: "DELETE"
         })
         .then(resp => resp.json())
@@ -51,7 +51,7 @@ function Home() {
 
     // Delete author
     const deleteAuthor = (id) => {
-        fetch(`http://localhost:9292/authors/${id}`, {
+        fetch(`http://book-review-app-espersonnel.herokuapp.com/authors/${id}`, {
             method: "DELETE"
         })
         .then(resp => resp.json())
@@ -63,7 +63,7 @@ function Home() {
 
     // Delete review
     const deleteReview = (id) => {
-        fetch(`http://localhost:9292/reviews/${id}`, {
+        fetch(`http://book-review-app-espersonnel.herokuapp.com/reviews/${id}`, {
             method: "DELETE"
         })
         .then(resp => resp.json())
@@ -75,7 +75,7 @@ function Home() {
 
     // Add book
     const addBook = (book) => {
-        fetch("http://localhost:9292/books", {
+        fetch("http://book-review-app-espersonnel.herokuapp.com/books", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -93,7 +93,7 @@ function Home() {
     
     // Add author
     const addAuthor = (author) => {
-        fetch("http://localhost:9292/authors", {
+        fetch("http://book-review-app-espersonnel.herokuapp.com/authors", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -111,7 +111,7 @@ function Home() {
 
     // Add review
     const addReview = (review) => {
-        fetch("http://localhost:9292/reviews", {
+        fetch("http://book-review-app-espersonnel.herokuapp.com/reviews", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -129,7 +129,7 @@ function Home() {
 
     // Update book
     const updateBook = (book) => {
-        fetch(`http://localhost:9292/books/${book.id}`, {
+        fetch(`http://book-review-app-espersonnel.herokuapp.com/books/${book.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -147,7 +147,7 @@ function Home() {
 
     // Update author
     const updateAuthor = (author) => {
-        fetch(`http://localhost:9292/authors/${author.id}`, {
+        fetch(`http://book-review-app-espersonnel.herokuapp.com/authors/${author.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -165,7 +165,7 @@ function Home() {
 
     // Update review
     const updateReview = (review) => {
-        fetch(`http://localhost:9292/reviews/${review.id}`, {
+        fetch(`http://book-review-app-espersonnel.herokuapp.com/reviews/${review.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -186,9 +186,14 @@ function Home() {
     const filteredAuthors = authors.filter(author => author.name.toLowerCase().includes(search.toLowerCase()))
 
     // Render books and authors
-    const renderBooks = filteredBooks.map(book => <Book key={book.id} book={book} deleteBook={deleteBook} updateBook={updateBook} />)
-    const renderAuthors = filteredAuthors.map(author => <Author key={author.id} author={author} deleteAuthor={deleteAuthor} updateAuthor={updateAuthor} />)
-    const renderReviews = reviews.map(review => <Review key={review.id} review={review} deleteReview={deleteReview} updateReview={updateReview} />)
+    // const renderBooks = filteredBooks.map(book => <Book key={book.id} book={book} deleteBook={deleteBook} updateBook={updateBook} />)
+    // const renderAuthors = filteredAuthors.map(author => <Author key={author.id} author={author} deleteAuthor={deleteAuthor} updateAuthor={updateAuthor} />)
+    // const renderReviews = reviews.map(review => <Review key={review.id} review={review} deleteReview={deleteReview} updateReview={updateReview} />)
+
+    const renderBooks = filteredBooks.map(book => <Book key={book.id} book={book} updateBook={updateBook} />)
+    const renderAuthors = filteredAuthors.map(author => <Author key={author.id} author={author} updateAuthor={updateAuthor} />)
+    const renderReviews = reviews.map(review => <Review key={review.id} review={review} updateReview={updateReview} />)
+
 
     // Fetch data from Ruby backend
     useEffect(() => {
