@@ -11,7 +11,7 @@ function Book(props, onDeleteBook) {
   }
 
   function handleDeleteClick() {
-    fetch(`http://localhost:9292/books/${id}`, {
+    fetch(`http://book-review-app-espersonnel.herokuapp.com/books/${id}`, {
       method: "DELETE"
     })
     .then(resp => resp.json())
